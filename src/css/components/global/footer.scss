@@ -1,0 +1,129 @@
+.footer {
+  min-height: 360px;
+  background: #000;
+  color: white;
+  position: relative;
+
+  .back-to-top {
+    z-index: 100;
+    cursor: pointer;
+    position: absolute;
+    right: 82px;
+    top: 46px;
+    height: 50px;
+    width: 50px;
+    @media screen and (max-width: $tablet) {
+      right: 8px;
+      top: -20px;
+    }
+  }
+
+  .row {
+    .logo-col {
+      padding-top: 66px;
+      padding-left: 114px;
+      @media screen and (max-width: $laptop) {
+        padding-left: 0;
+        justify-content: center;
+      }
+
+      img {
+        width: auto;
+        height: 28px;
+      }
+    }
+    .about-col {
+      padding-top: 70px;
+
+      @media screen and (max-width: 768px) {
+        padding-top: 30px;
+      }
+
+      .content {
+        h2 {
+          margin-bottom: 25px;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 120%;
+          letter-spacing: 0.15em;
+          color: #fff;
+        }
+        .creators {
+          margin-bottom: 40px;
+
+          font-style: normal;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          display: flex;
+          align-items: center;
+          color: #fff;
+          margin-bottom: 35px;
+          @media screen and (max-width: $tablet) {
+            justify-content: center;
+          }
+        }
+
+        @media screen and (max-width: $tablet-small) {
+          text-align: center;
+        }
+      }
+    }
+
+    .empty-col {
+      min-height: 360px;
+      @media screen and (max-width: $tablet-big) {
+        min-height: unset;
+        margin-top: 30px;
+      }
+      display: flex;
+
+      .content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: end;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: $tablet) {
+          column-gap: 40px;
+          justify-content: center;
+        }
+
+        .creators {
+          font-size: 14px;
+          margin-bottom: 40px;
+          color: $silver;
+        }
+
+        p {
+          color: $silver;
+          margin-bottom: 54px;
+        }
+
+        a {
+          color: $white70;
+          font-weight: 400;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        img {
+          width: 153px;
+          height: 26px;
+          margin-right: 31px;
+          margin-bottom: 58px;
+        }
+
+        .yellow-text {
+          color: $primary;
+          font-weight: 300;
+          text-transform: none;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

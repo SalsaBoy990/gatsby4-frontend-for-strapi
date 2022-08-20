@@ -1,0 +1,150 @@
+header.header {
+  background: white;
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    .navbar-brand {
+      padding-left: 30px;
+      display: inline-flex;
+      background: $primary;
+      width: 300px !important;
+      height: 60px;
+
+      .site-logo {
+        max-height:40px;
+        width: auto;
+      }
+
+      @media screen and (max-width: 576px) {
+        width: 200px !important;
+        padding-left: 30px;
+      }
+      align-items: center;
+    }
+    .decor {
+      position: absolute;
+      right: 0;
+      top: 16px;
+      background: $primary;
+      height: 38px;
+      width: 129px;
+    }
+  }
+
+  .mobile-menu-container {
+    padding-left: 30px;
+  }
+
+  .mobile-menu-container.navbar-collapse.collapse.show {
+    padding-left: 69px;
+    border-bottom: 1px solid #ccc;
+    .d-flex.navbar-nav {
+      max-width: 400px;
+    }
+
+    @media screen and (max-width: 576px) {
+      padding-left: 30px;
+    }
+  }
+
+  .navbar-collapse,
+  .offcanvas {
+    justify-content: flex-end;
+  }
+}
+.offcanvas {
+  .offcanvas-header {
+    border-bottom: 1px solid #ccc;
+    background: lightgray;
+    padding: 0.83rem 1rem;
+
+    .offcanvas-logo {
+      max-width: 200px;
+    }
+  }
+  a.nav-link {
+    margin-bottom: 0.5rem;
+
+    &:last-of-type {
+      margin-top: 0.5rem;
+
+      &:hover {
+        color: #ffc920 !important;
+      }
+    }
+
+    &.active {
+      &::before {
+        left: 17px;
+      }
+    }
+    &::after {
+      left: 17px;
+    }
+  }
+}
+
+.nav.nav-link,
+a.nav-link {
+  position: relative;
+  padding-right: 21px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: black !important;
+  overflow: hidden;
+
+  &.active {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      width: 30px;
+      height: 5px;
+      background-color: black;
+    }
+  }
+
+  &.active-bg {
+    color: $primary;
+    background-color: black;
+  }
+
+  /* Fade in */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    width: 30px;
+    height: 5px;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:last-of-type {
+    padding-right: 26px;
+    height: 38px;
+    background: $primary;
+
+    &:hover {
+      color: $primary;
+      background: black;
+    }
+  }
+}

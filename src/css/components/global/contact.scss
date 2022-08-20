@@ -1,0 +1,154 @@
+.contact-container {
+  min-height: 720px;
+  background-color: #333;
+  color: white;
+
+  .left-block {
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .block-content {
+      max-width: 450px;
+      width: 100%;
+      padding-right: 1rem;
+
+      @media screen and (max-width: 976px) {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+      }
+
+      h2 {
+        margin-top: 90px;
+        margin-bottom: 30px;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 38px;
+        letter-spacing: 0.12em;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"] {
+        background: #ffffff;
+        border-radius: 0;
+        height: 50px;
+      }
+
+      select {
+        position: relative;
+        border-radius: 0;
+        height: 50px;
+      }
+
+      textarea {
+        border-radius: 0;
+      }
+
+      button.btn {
+        max-width: 200px;
+        width: 100%;
+        height: 50px;
+        background: $primary;
+        font-weight: 600;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #000;
+        border-radius: 0;
+        border-color: $primary;
+
+        &:hover, &:focus {
+          background: #000;
+          border-color: #000;
+          color: $yellow;
+        }
+      }
+    }
+
+    ::-webkit-input-placeholder {
+      /* Edge */
+      font-style: italic;
+      font-weight: 300;
+      font-size: 16px;
+      color: $silver;
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      font-style: italic;
+      font-weight: 300;
+      font-size: 16px;
+      color: $silver;
+    }
+
+    ::placeholder {
+      font-style: italic;
+      font-weight: 300;
+      font-size: 16px;
+      color: $silver;
+    }
+  }
+
+  .right-block {
+    padding-left: 0;
+    padding-right: 1px;
+
+    .map-container-full {
+      min-height: 720px;
+      width: 100%;
+      .map {
+        width: 100%;
+        height: 100%;
+        filter: grayscale(100%) invert(92%) contrast(83%);
+      }
+      @media screen and (max-width: 1200px) {
+        max-width: 100%;
+      }
+    }
+    .map-container {
+      position: relative;
+      height: 360px;
+      width: 100%;
+      margin-bottom: 2px;
+      .map {
+        width: 100%;
+        height: 360px;
+        filter: grayscale(100%) invert(92%) contrast(83%);
+      }
+
+      .overlay {
+        position: absolute;
+        top: 21px;
+        left: 0;
+        z-index: 1000;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.15em;
+        color: #000000;
+        background-color: $primary;
+        text-transform: uppercase;
+        width: 166px;
+        height: 30px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        max-width: 100%;
+      }
+    }
+  }
+}

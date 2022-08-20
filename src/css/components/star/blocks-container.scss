@@ -1,0 +1,14 @@
+.blocks-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2px;
+  @media screen and (max-width: 1010px) {
+    max-width: 100%;
+    justify-content: center;
+  }
+  &.is-full-width {
+    max-width: 100%;
+  }
+}

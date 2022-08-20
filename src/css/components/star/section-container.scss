@@ -1,0 +1,190 @@
+.white-bg-container,
+.black-bg-container,
+.image-bg-container {
+  min-height: 916px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 122px;
+    left: 0;
+    width: 180px;
+    height: 36px;
+    background: $primary;
+
+    @media screen and (max-width: $laptop) {
+      top: 40px;
+      width: 60px;
+    }
+  }
+
+  padding-top: 138px;
+  @media screen and (max-width: $tablet) {
+    padding-top: 80px;
+  }
+
+  width: 100%;
+  color: white;
+  background-color: black;
+
+  .img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .bg-image {
+      object-fit: cover;
+      height: 100% !important;
+      width: 100%;
+    }
+  }
+
+  .left-block {
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 50px;
+
+    @media screen and (max-width: $tablet) {
+      align-items: center;
+      padding-right: 0px;
+    }
+
+    h2 {
+      width: 313px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 38px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff;
+      margin-bottom: 65px;
+
+      @media screen and (max-width: $tablet) {
+        max-width: 75%;
+        width: 75%;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      @media screen and (max-width: $tablet-small) {
+        max-width: 95%;
+        width: 95%;
+      }
+    }
+
+    p {
+      width: 313px;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+
+      @media screen and (max-width: $tablet) {
+        width: 75%;
+        margin: 0 auto;
+      }
+      @media screen and (max-width: $tablet-small) {
+        max-width: 90%;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .right-block {
+    z-index: 1000;
+    margin-top: 108px;
+    margin-bottom: 128px;
+
+    @media screen and (max-width: $tablet) {
+      margin-bottom: 40px;
+      margin-top: 60px;
+    }
+  }
+}
+
+.white-bg-container {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 122px;
+    left: 0;
+    content: "";
+    width: 180px;
+    height: 36px;
+    background: $primary;
+
+    @media screen and (max-width: $laptop) {
+      width: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 30px;
+    }
+  }
+  .img-overlay {
+    display: none;
+  }
+
+  color: black;
+  background-color: white;
+
+  .left-block {
+    @media screen and (max-width: 976px) {
+      align-items: center;
+      padding-top: 40px;
+      padding-right: 0px;
+    }
+    h2 {
+      color: black;
+    }
+    p {
+      color: black;
+    }
+  }
+}
+
+.black-bg-container {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 122px;
+    left: 0;
+    content: "";
+    width: 180px;
+    height: 36px;
+    background: $primary;
+
+    @media screen and (max-width: $laptop) {
+      width: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 30px;
+    }
+  }
+  .img-overlay {
+    display: none;
+  }
+
+  color: white;
+  background-color: black;
+
+  .left-block {
+    @media screen and (max-width: 976px) {
+      align-items: center;
+      padding-top: 40px;
+      padding-right: 0px;
+    }
+    h2 {
+      color: white;
+    }
+    p {
+      color: white;
+    }
+  }
+}

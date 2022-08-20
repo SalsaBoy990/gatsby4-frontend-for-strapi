@@ -1,0 +1,8 @@
+{
+  "general": {
+    "some_key": "Valamilyen érték"
+  },
+  "frontPage": {
+    "intro_video_title": "Urben design bemutatkozó videó"
+  }
+}

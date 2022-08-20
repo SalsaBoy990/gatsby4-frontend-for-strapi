@@ -1,0 +1,8 @@
+{
+  "general": {
+    "some_key": "Some value"
+  },
+  "frontPage": {
+    "intro_video_title": "Urben design introduction video"
+  }
+}

@@ -1,0 +1,25 @@
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+
+export interface IBlockRichText {
+  data: {
+    richTextBody: any;
+  };
+}
+
+const BlockRichText = ({ data }: IBlockRichText) => {
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <div className="py-4">
+            <ReactMarkdown children={data.richTextBody}></ReactMarkdown>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export default BlockRichText;

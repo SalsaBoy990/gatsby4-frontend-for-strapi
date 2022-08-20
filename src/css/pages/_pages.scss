@@ -1,0 +1,22 @@
+.page {
+  position: relative;
+
+  .bg-white {
+    background-color: white;
+  }
+}
+
+.card.bg-dark {
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: $yellow;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      border: 1px dashed $yellow;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.partners-container {
+  background: white;
+  height: 242px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-left: 142px;
+  padding-right: 38px;
+
+  @media screen and (max-width: 976px) {
+    padding-left: 40px;
+    padding-right: 0px;
+  }
+
+  .partners-slider {
+    width: 100%;
+
+    .slick-next {
+      right: 0;
+    }
+
+    .slick-list {
+      .slick-track {
+        align-items: center;
+        display: flex;
+      }
+    }
+  }
+}
