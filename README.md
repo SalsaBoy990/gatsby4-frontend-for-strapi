@@ -4,8 +4,30 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal starter
+  Gatsby4 frontend starter for Strapi 4
 </h1>
+
+## Setup
+
+This starter is for this Strapi backend:
+- [strapi4-backend](https://github.com/SalsaBoy990/strapi4-backend)
+
+Set these variables in `.env.development`:
+
+```
+STRAPI_API_URL=strapi-app-url-on-heroku
+STRAPI_TOKEN=full-access-token-generated-in-the-strapi-app
+```
+
+To refresh content for the Gatsby development script, set this variable to true:
+
+`ENABLE_GATSBY_REFRESH_ENDPOINT=true`
+
+And run:
+`bin/refresh`
+
+The bash script will trigger the rebuild of the content after the data changes you have made in the Strapi admin.
+
 
 ## 🚀 Quick start
 
