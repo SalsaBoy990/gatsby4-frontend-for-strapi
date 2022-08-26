@@ -4,8 +4,8 @@
 
   .empty-slider {
     .slick-next {
-     // top: 220px;
-      right: 10px;
+      top: 200px;
+      right: 20px;
       z-index: 10;
       &::before {
         content: url(../../../images/svg/next_icon.svg);
@@ -13,8 +13,8 @@
     }
 
     .slick-prev {
-    //  top: 220px;
-      left: 0;
+      top: 200px;
+      left: 10px;
       z-index: 10;
 
       &::before {

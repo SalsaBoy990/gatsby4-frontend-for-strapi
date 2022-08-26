@@ -10,7 +10,7 @@ export interface IBlockRichText {
 
 const BlockRichText = ({ data }: IBlockRichText) => {
   return (
-    <Container fluid className="pe-0 ps-0">
+    <Container className="pe-0 ps-0">
       <Row>
         <Col>
           <div className="pb-4">

@@ -20,12 +20,8 @@ const BlockMedia = ({ data }: IBlockMedia) => {
   const isVideo = data.file.mime.startsWith("video");
 
   return (
-    <div className="pb-5">
-      {isVideo ? (
-        <p>TODO video</p>
-      ) : (
-        <GatsbyImage image={getImage(data.file.file.childImageSharp.gatsbyImageData) as IGatsbyImageData} alt={data.file.alternativeText} />
-      )}
+    <div className="container pb-5 pe-0 ps-0">
+      {isVideo ? <p>TODO video</p> : <GatsbyImage image={getImage(data.file.file.childImageSharp.gatsbyImageData) as IGatsbyImageData} alt={data.file.alternativeText} />}
     </div>
   );
 };

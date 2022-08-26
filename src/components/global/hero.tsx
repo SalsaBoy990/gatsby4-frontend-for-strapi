@@ -44,7 +44,7 @@ const Hero = (props: IHero) => {
 
   return (
     <div className="hero-container">
-      <img src={heroBackground.file.url} alt="valami" className="hero-bg" />
+      <img src={heroBackground.file.url} alt="Skyscrapers in Chicago" className="hero-bg" />
 
       <div className="hero-overlay d-flex flex-column justify-content-center align-items-center align-content-center">
         <div className="bg-gray">

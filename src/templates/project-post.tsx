@@ -23,11 +23,12 @@ const ProjectPost = ({ data }: any) => {
       <main>
         <EmptySlider>
           {projectData &&
-            projectData.projects.map((item: IProject) => {
+            projectData.projects.map((item: IProject, index: number) => {
               return (
                 <Project
                   groupTitle={projectData.title}
                   key={item.id}
+                  index={index}
                   title={item.title}
                   description={item.description}
                   coverImage={item.coverImage}

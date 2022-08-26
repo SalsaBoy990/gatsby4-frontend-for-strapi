@@ -1,15 +1,13 @@
 import React from "react";
-
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "gatsby";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 import ImageBlock from "../block/image-block";
-
 import BlocksRenderer from "../../global/block-renderer";
 
 export interface IProject {
   id?: string;
+  index: number;
   title: string;
   groupTitle: string;
   description: string;
@@ -22,11 +20,13 @@ export interface IProject {
 }
 
 const Project = (props: any) => {
-  const { title, description, coverImage, blocks, groupTitle } = props;
+  const { title, description, coverImage, blocks, groupTitle, index } = props;
+
+    console.log(props);
 
   return (
     <div>
-      <Container fluid className="project-container">
+      <Container fluid className="project-container" style={{ marginTop: index === 0 ? "60px" : "-68px" }}>
         <Row>
           <Col md={12} lg={12} className="px-0">
             <ImageBlock

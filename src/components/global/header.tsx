@@ -7,6 +7,8 @@ import { mdiMenu } from "@mdi/js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
+import { getPhoneNumberLink } from "../../utils/utils";
+
 export interface INavigationItem {
   id: string;
   title: string;
@@ -78,12 +80,12 @@ const Header = () => {
   const global = queriedData.strapiGlobal;
 
   return (
-    <header className="header fixed-top" style={{ marginBottom: "60px" }}>
+    <header className="header fixed-top">
       <Navbar collapseOnSelect expand="xl" style={{ backgroundColor: "#FFF !important", height: "60px" }}>
         <Container fluid className="p-0">
           <div className="mb-0">
             <a href={siteUrl} className="navbar-brand">
-              <img src={logo} className="site-logo d-inline-block align-top" alt="Starcity Group" />
+              <img src={logo} className="site-logo d-inline-block align-top" alt={global.siteName} />
             </a>
           </div>
           <button
@@ -101,11 +103,11 @@ const Header = () => {
           </Navbar.Collapse>
           <div className="contact-navbar d-none d-md-flex justify-content-end order-1 order-lg-1 ms-auto">
             <a href={"mailto:" + global.email}>
-              <FontAwesomeIcon icon={faEnvelope} className="me-1" />
+              <FontAwesomeIcon icon={faEnvelope} className="me-1" width="16" />
               {global.email}
             </a>
-            <a href={"tel:" + global.phoneNumber}>
-              <FontAwesomeIcon icon={faPhone} className="me-1" />
+            <a href={"tel:" + getPhoneNumberLink(global.phoneNumber)}>
+              <FontAwesomeIcon icon={faPhone} className="me-1" width="16" />
               {global.phoneNumber}
             </a>
           </div>
@@ -115,7 +117,7 @@ const Header = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <a href={siteUrl} className="navbar-brand">
-              <img src={logo} className="site-logo offcanvas-logo d-inline-block align-top" alt="StarCity" />
+              <img src={logo} className="site-logo offcanvas-logo d-inline-block align-top" alt={global.siteName} />
             </a>
           </Offcanvas.Title>
         </Offcanvas.Header>
@@ -126,11 +128,11 @@ const Header = () => {
           <div className="d-flex flex-column offcanvas-contact-navbar">
             <div>Contact</div>
             <a href={"mailto:" + global.email} className="mb-3">
-              <FontAwesomeIcon icon={faEnvelope} className="me-1" />
+              <FontAwesomeIcon icon={faEnvelope} className="me-1" width="16" />
               {global.email}
             </a>
             <a href={"tel:" + global.phoneNumber}>
-              <FontAwesomeIcon icon={faPhone} className="me-1" />
+              <FontAwesomeIcon icon={faPhone} className="me-1" width="16" />
               {global.phoneNumber}
             </a>
           </div>

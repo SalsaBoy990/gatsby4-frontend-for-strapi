@@ -23,14 +23,18 @@ const ProjectSlider = (props: IProjectSlider) => {
     autoplay: false,
     draggable: false,
     swipe: false,
-    touchMove: false
+    touchMove: false,
   };
+
+  let index = 0;
+
   return (
     <section className="project-slider-container">
       <Slider {...sliderSettings}>
-        {projects.map((item: IProject) => (
-          <Project data={item} />
-        ))}
+        {projects.map((item: IProject) => {
+          item.index = index++;
+          return <Project data={item} />;
+        })}
       </Slider>
     </section>
   );

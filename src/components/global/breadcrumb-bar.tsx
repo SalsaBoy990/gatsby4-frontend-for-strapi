@@ -13,9 +13,9 @@ const BreadcrumbBar = ({ data }: any) => {
   const { pageName, parentPageName, previousPath }: IBreadcrumb = data;
 
   return (
-    <div className="container">
+    <div className="container pe-0 ps-0">
       <div className="breadcrumb-container">
-        <div>
+        <div style={{ display: "none" }}>
           <Link to={previousPath ? `/${previousPath}` : "/"} className="back-btn btn btn-outline-light btn-sm">
             Back
           </Link>

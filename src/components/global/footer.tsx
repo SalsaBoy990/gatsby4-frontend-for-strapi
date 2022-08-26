@@ -6,6 +6,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
+import { getPhoneNumberLink } from "../../utils/utils";
 import MapView from "./map-view";
 import backToTop from "../../images/svg/back-to-top.svg";
 
@@ -96,7 +97,7 @@ const Footer = () => {
       const activeClassName: string = "nav-link active";
 
       return item.slug.indexOf("#") !== -1 ? (
-        <AnchorLink key={item.id} to={`/${item.slug}`} data-rr-ui-event-key={item.slug} className={"nav-link"}>
+        <AnchorLink key={item.id} to={`${item.slug}`} data-rr-ui-event-key={item.slug} className={"nav-link"}>
           {item.title}
         </AnchorLink>
       ) : (
@@ -143,18 +144,18 @@ const Footer = () => {
                 <ul className="footer-nav nav flex-column flex-sm-row flex-md-row flex-lg-column align-items-center align-items-md-start align-items-lg-end justify-content-center justify-content-md-start justify-content-lg-end">
                   <li>
                     <a href={"mailto:" + global.email}>
-                      <FontAwesomeIcon icon={faEnvelope} className="me-1" />
+                      <FontAwesomeIcon icon={faEnvelope} className="me-1" width="16" />
                       {global.email}
                     </a>
                   </li>
                   <li>
-                    <a href={"tel:" + global.phoneNumber}>
-                      <FontAwesomeIcon icon={faPhone} className="me-1" />
+                    <a href={"tel:" + getPhoneNumberLink(global.phoneNumber)}>
+                      <FontAwesomeIcon icon={faPhone} className="me-1" width="16" />
                       {global.phoneNumber}
                     </a>
                   </li>
                   <li>
-                    <FontAwesomeIcon icon={faLocationDot} className="me-1" />
+                    <FontAwesomeIcon icon={faLocationDot} className="me-1" width="16" />
                     {global.address}
                   </li>
                 </ul>

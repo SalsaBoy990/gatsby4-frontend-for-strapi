@@ -27,7 +27,7 @@ const ArticlePost = ({ data }: any) => {
   return (
     <LayoutBlog as="article">
       <Seo seo={seo} />
-      <header className="container py-4">
+      <header className="container py-4" style={{ marginTop: "60px"}}>
         <BreadcrumbBar data={breadcrumbData}></BreadcrumbBar>
         <h1 className="">{article.title}</h1>
         <p className="mt-4">{article.description}</p>

@@ -59,7 +59,7 @@ const ImageBlock = ({ data }: any) => {
         {hasOverlay && (
           <div className="overlay-text">
             <h3>
-              {hasBackArrow && <FontAwesomeIcon icon={faArrowLeftLong} className="me-1" />}
+              {hasBackArrow && <FontAwesomeIcon icon={faArrowLeftLong} className="me-1" width="16" />}
               {heading}
             </h3>
           </div>
@@ -87,7 +87,7 @@ const ImageBlock = ({ data }: any) => {
                 }}>
                 {hasBackArrow && (
                   <span className="me-2">
-                    <FontAwesomeIcon icon={faArrowLeftLong} className="me-2" />
+                    <FontAwesomeIcon icon={faArrowLeftLong} className="me-2" width="16" />
                     Home /
                   </span>
                 )}

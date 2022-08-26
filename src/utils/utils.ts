@@ -13,3 +13,7 @@ function filterByBoxGroup(boxesToFilter: Box[], boxGroup: string) {
   const filteredBoxes: Box[] = boxesToFilter.filter((item: Box) => item.boxGroup.slug === boxGroup);
   return filteredBoxes;
 }
+
+export function getPhoneNumberLink(phoneNumber: string) {
+  return phoneNumber.replace(/\s/g, "").replace(/\//g, "");
+}
