@@ -103,49 +103,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        ... on StrapiComponentSharedImageSectionContainer {
-          id
-          heading
-          description
-          customClass
-          background {
-            file {
-              url
-            }
-          }
-          imageBlocks {
-            textColor
-            linkTo
-            id
-            heading
-            hasOverlay
-            hasBackArrow
-            boxHeight
-            background {
-              file {
-                url
-              }
-            }
-            logo {
-              file {
-                url
-              }
-            }
-          }
-        }
-        ... on StrapiComponentStarSimpleSectionContainer {
-          id
-          customClass
-          description
-          heading
-          simpleBlocks {
-            textColor
-            id
-            heading
-            blockSize
-            backgroundColor
-          }
-        }
         ... on StrapiComponentGlobalArticleGrid {
           id
           articleGridTitle
@@ -162,6 +119,12 @@ export const pageQuery = graphql`
         ... on StrapiComponentSharedTitleBar {
           id
           titleBarTitle
+          titleBarImage {
+            file {
+              url
+            }
+          }
+          titleBarDescription
         }
         ... on StrapiComponentStarImageSlider {
           id

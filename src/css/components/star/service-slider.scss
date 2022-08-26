@@ -1,0 +1,110 @@
+.services-container {
+  background-color: #000;
+  height: 445px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @media screen and (max-width: 1024px) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    height: 345px;
+  }
+
+  .services-content {
+    width: 1540px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .service-slider {
+      width: 100%;
+
+      .slick-next {
+        right: 0;
+      }
+
+      .slick-dots li.slick-active button:before,
+      .slick-dots li button:before {
+        color: white;
+      }
+
+      .slick-prev:before,
+      .slick-next:before {
+        opacity: 0.5;
+      }
+
+      .slick-prev:hover:before,
+      .slick-prev:focus:before,
+      .slick-next:hover:before,
+      .slick-next:focus:before {
+        opacity: 0.9;
+      }
+
+      .slick-list {
+        .slick-track {
+          align-items: center;
+          display: flex;
+
+          .service-item {
+            margin: 0 auto;
+            max-width: 300px !important;
+
+            @media screen and (max-width: 1024px) {
+              max-width: unset !important;
+            }
+
+            .service-icon {
+              transform: scale(0.8);
+              .excavator {
+                margin-bottom: 6px;
+              }
+              .helmet {
+                margin-bottom: 3px;
+              }
+
+              .crane {
+                margin-bottom: 11px;
+              }
+
+              .concrete-mixer {
+                margin-bottom: -16px;
+              }
+            }
+
+            .line-separator {
+              margin-bottom: 30px;
+              margin-left: auto;
+              margin-right: auto;
+              width: 293px;
+              height: 4px;
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 1px;
+              transform: matrix(1, 0, 0, -1, 0, 0);
+            }
+
+            h3 {
+              font-weight: 600;
+              font-size: 20px;
+              padding: 0 10px;
+
+              @media screen and (max-width: 1024px) {
+                padding: 0 24px;
+              }
+            }
+            p {
+              padding: 0 10px;
+              @media screen and (max-width: 1024px) {
+                padding: 0 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

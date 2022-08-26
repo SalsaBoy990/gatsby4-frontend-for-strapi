@@ -1,0 +1,122 @@
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  margin-bottom: 16px;
+
+  .hero-overlay {
+    z-index: 100;
+    height: calc(100vh - 60px);
+    text-align: center;
+
+    .bg-gray {
+      padding-top: 16px;
+      max-width: 1307px;
+      background: rgba(111, 111, 111, 0.65);
+    }
+
+    h1 {
+      padding: 0 24px;
+      margin-bottom: 24px;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 120%;
+      text-transform: uppercase;
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 36px;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 150%;
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 18px;
+        padding: 0 24px;
+      }
+    }
+
+    .video-play-btn {
+      margin-top: 43px;
+      margin-bottom: 39px;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+
+      span {
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: #ffffff;
+
+        @media screen and (max-width: $tablet-small) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .hero-cta-btn {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 40px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #000000;
+      background: rgba(255, 201, 32, 0.9);
+      border: 2px solid #ffe48f;
+      border-radius: 1px;
+      width: 200px;
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 14px;
+      }
+
+      &:hover,
+      &:focus {
+        color: rgba(255, 201, 32, 0.9);
+        background: #000;
+        border: 2px solid #ffe48f;
+      }
+    }
+  }
+
+  .hero-bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+.hero-modal {
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-content {
+    margin: auto;
+    width: 85%;
+
+    @media screen and (max-width: $tablet-small) {
+      width: 100%;
+    }
+
+    height: auto;
+    background-color: transparent;
+  }
+}
+
+.modal-backdrop.show.hero-modal-backdrop {
+  background-color: #000;
+  opacity: 0.8;
+}

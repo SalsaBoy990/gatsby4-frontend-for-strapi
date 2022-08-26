@@ -1,105 +1,63 @@
 .project-container {
+  margin-top: 0;
   position: relative;
+  max-width: 1920px;
   width: 100%;
   color: white;
   background-color: black;
-  padding-bottom: 180px;
-  @media screen and (max-width: 1010px) {
-    padding-bottom: 80px;
-  }
 
-  ul.no-list-style {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-left: 40px;
-    li {
-      margin-bottom: 10px;
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 16px;
-      display: flex;
-      align-items: center;
-      letter-spacing: 0.15em;
+  .content {
+    padding-top: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
 
-      a {
-        color: #fff;
-        text-decoration: none;
+    .decoration {
+      text-align: center;
+      margin: 0 auto;
+      svg {
+        transform: scale(0.8);
       }
     }
-  }
 
-  .left-block {
-    padding-left: 0;
-    padding-right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding-right: 50px;
-    @media screen and (max-width: 1010px) {
-      align-items: center;
-      padding-right: 0px;
-    }
+    h1 {
+      text-align: center;
+      width: 100%;
+      padding: 0 24px;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 120%;
+      color: #fff;
+      margin-bottom: 60px;
+      margin-top: 12px;
 
-    .content {
-      padding-top: 127px;
-      h2 {
-        max-width: 375px;
-        @media screen and (max-width: 1010px) {
-          padding-left: 16px;
-          max-width: 95%;
-          width: 95%;
-          text-align: center;
-        }
-        @media screen and (max-width: 768px) {
-          max-width: 95%;
-          width: 95%;
-        }
-
-        width: 100%;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 38px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: #fff;
-        margin-bottom: 65px;
+      @media screen and (max-width: $tablet-small) {
+        font-size: 36px;
+        margin-bottom: 40px;
       }
-      div {
-        p {
-          margin-bottom: 1.5rem;
-        }
-        b, strong {
-          display: block;
-          font-weight: 700;
-        }
-        font-weight: 300;
-        width: 330px;
-        @media screen and (max-width: 1010px) {
-          width: 95%;
-          padding-left: 16px;
-        }
-        @media screen and (max-width: 768px) {
-          max-width: 90%;
-          width: 90%;
-        }
-        font-style: normal;
-        font-weight: 300;
+    }
+    .description {
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      b,
+      strong {
+        display: block;
+        font-weight: 700;
+      }
+
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      color: #fff;
+
+      @media screen and (max-width: $tablet-small) {
         font-size: 16px;
-        line-height: 24px;
-        color: #fff;
       }
-    }
-  }
-
-  .right-block {
-    padding-left: 0;
-    padding-right: 0;
-    @media screen and (max-width: 1010px) {
-      align-items: center;
-      margin-top: 40px;
-      margin-bottom: 40px;
     }
   }
 }

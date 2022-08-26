@@ -8,13 +8,6 @@ export interface IPartnerSlide {
     file: {
       url: string;
     };
-    alternativeText?: string;
-  };
-  logo?: {
-    file: {
-      url: string;
-    };
-    alternativeText?: string;
   };
   id: string;
 }
@@ -49,6 +42,15 @@ const PartnerSlider = (props: IPartnerSlider) => {
         settings: {
           arrows: true,
           dots: true,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+          dots: true,
           slidesToShow: 4,
           slidesToScroll: 1,
         },
@@ -62,6 +64,15 @@ const PartnerSlider = (props: IPartnerSlider) => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 420,
+        settings: {
+          arrows: true,
+          dots: true,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
   return (
@@ -69,8 +80,8 @@ const PartnerSlider = (props: IPartnerSlider) => {
       <Slider {...sliderSettings}>
         {slides.map((item: IPartnerSlide) => {
           return (
-            <div key={item.id}>
-              <img src={item.image.file.url} alt={item.image.alternativeText} />
+            <div key={"partner-" + item.id} className="partner-item">
+              <img src={item.image.file.url} alt={item.title} />
             </div>
           );
         })}

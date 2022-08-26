@@ -54,49 +54,6 @@ const HomePage = () => {
               }
             }
           }
-          ... on StrapiComponentSharedImageSectionContainer {
-            id
-            heading
-            description
-            customClass
-            background {
-              file {
-                url
-              }
-            }
-            imageBlocks {
-              textColor
-              linkTo
-              id
-              heading
-              hasOverlay
-              hasBackArrow
-              boxHeight
-              background {
-                file {
-                  url
-                }
-              }
-              logo {
-                file {
-                  url
-                }
-              }
-            }
-          }
-          ... on StrapiComponentStarSimpleSectionContainer {
-            id
-            customClass
-            description
-            heading
-            simpleBlocks {
-              textColor
-              id
-              heading
-              blockSize
-              backgroundColor
-            }
-          }
           ... on StrapiComponentGlobalArticleGrid {
             id
             articleGridTitle
@@ -110,18 +67,49 @@ const HomePage = () => {
           ... on StrapiComponentGlobalFooter {
             id
           }
+          ... on StrapiComponentGlobalHero {
+            id
+            pageTitle
+            subTitle
+            heroBackground {
+              file {
+                url
+              }
+            }
+            heroVideo {
+              file {
+                url
+              }
+            }
+            heroButtonText
+            heroButtonLink
+          }
           ... on StrapiComponentSharedTitleBar {
             id
             titleBarTitle
+            titleBarImage {
+              file {
+                url
+              }
+            }
+            titleBarDescription
           }
           ... on StrapiComponentStarImageSlider {
             id
             slides {
+              title
               image {
                 file {
                   url
                 }
               }
+            }
+          }
+          ... on StrapiComponentStarServiceSlider {
+            services {
+              icon
+              serviceName
+              serviceDescription
             }
           }
           ... on StrapiComponentSharedBreadcrumbBar {
@@ -138,19 +126,14 @@ const HomePage = () => {
               id
               heading
               hasOverlay
-              hasBackArrow
-              boxHeight
-              logo {
-                file {
-                  url
-                }
-              }
               background {
                 file {
                   url
                 }
               }
             }
+            highlightsTitle
+            highlightsDescription
           }
           ... on StrapiComponentSharedPageHeader {
             pageHeroTitle
@@ -163,6 +146,25 @@ const HomePage = () => {
               }
             }
           }
+          ... on StrapiComponentStarExperience {
+            experienceTitle
+            experienceDescription
+            experienceItems {
+              id
+              itemTitle
+              percentage
+            }
+            slides {
+              title
+              linkTo
+              image {
+                file {
+                  url
+                }
+              }
+              id
+            }
+          }
         }
       }
     }
@@ -171,7 +173,6 @@ const HomePage = () => {
 
   const seo = {
     metaTitle: pageTitle,
-    metaDescription: pageTitle,
   };
 
   return (

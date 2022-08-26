@@ -1,54 +1,80 @@
-.title-bar {
-  
-  .title-left {
-    background: white;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    h2 {
-      font-weight: 500;
-      width: 230px;
-      font-size: 30px;
-      line-height: 38px;
-      letter-spacing: 0.12em;
-      color: #000000;
-      text-transform: uppercase;
-      margin-right: 130px;
-    }
-  }
-  .decor-right {
-    height: 260px;
-    background: $primary;
+.title-bar-container {
+  padding: 16px 0;
+  height: 312px;
+  background-color: $site-bg;
+
+  @media screen and (max-width: $tablet-small) {
+    height: 262px;
   }
 }
 
-@media (max-width: 976px) {
-  .title-bar {
-    position: relative;
-    &::after {
-      position: absolute;
-      top: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      content: "";
-      width: 100px;
-      height: 36px;
-      background: $primary;
+.title-bar {
+  height: 280px;
+  background: white;
+  position: relative;
+
+  @media screen and (max-width: $tablet-small) {
+    height: 230px;
+  }
+
+  .title-left {
+    height: 280px;
+
+    @media screen and (max-width: $tablet-small) {
+      height: 230px;
     }
 
-    .title-left {
-      height: 200px;
-      justify-content: center;
-      h2 {
-        margin-top: 40px;
-        width: 80%;
-        margin-right: 0px;
-        text-align: center;
+    max-width: 712px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+    @media screen and (max-width: 1600px) {
+      padding-left: 24px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      position: absolute;
+      max-width: 100%;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 120%;
+      color: #000000;
+      margin-bottom: 30px;
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 24px;
       }
     }
-    .decor-right {
-      height: 0px;
+    p {
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 20px;
+      line-height: 150%;
+      margin-bottom: 0;
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 16px;
+      }
+    }
+  }
+  .title-right {
+    height: 280px;
+    overflow: hidden;
+    padding-right: 0;
+
+    @media screen and (max-width: 1600px) {
+      max-width: 35%;
+    }
+
+    @media screen and (max-width: 1024px) {
       display: none;
     }
   }

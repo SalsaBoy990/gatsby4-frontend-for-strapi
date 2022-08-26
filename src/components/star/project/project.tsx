@@ -5,108 +5,54 @@ import { Link } from "gatsby";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 import ImageBlock from "../block/image-block";
-import BlocksContainer from "../block/blocks-container";
+
+import BlocksRenderer from "../../global/block-renderer";
 
 export interface IProject {
   id?: string;
   title: string;
+  groupTitle: string;
   description: string;
-  navTitle: string;
-  seoDescription: string;
-  topLeftImage: {
+  coverImage: {
     file: {
       url: string;
     };
   };
-  topRightImage: {
-    file: {
-      url: string;
-    };
-  };
-  sideTopImage: {
-    file: {
-      url: string;
-    };
-  };
-  sideBottomImage: {
-    file: {
-      url: string;
-    };
-  };
-  logo?: {
-    file: {
-      url: string;
-    };
-  };
+  blocks: any;
 }
 
 const Project = (props: any) => {
-  const { title, description, topLeftImage, topRightImage, logo, sideTopImage, sideBottomImage, navTitle } = props;
+  const { title, description, coverImage, blocks, groupTitle } = props;
 
-  const boxHeight: string = "650px";
-  const boxHeightRectangle: string = "360px";
   return (
     <div>
       <Container fluid className="project-container">
         <Row>
-          <Col md={12} lg={6} className="px-0">
+          <Col md={12} lg={12} className="px-0">
             <ImageBlock
               data={{
-                heading: navTitle,
+                heading: groupTitle,
                 hasBackArrow: true,
                 hasOverlay: true,
                 textColor: "white",
-                background: topLeftImage,
-                boxHeight: boxHeight,
-              }}></ImageBlock>
-          </Col>
-          <Col md={12} lg={6} className="px-0">
-            <ImageBlock
-              data={{
-                background: topRightImage,
-                boxHeight: boxHeight,
-                hasOverlay: false,
-                logo: logo,
+                background: coverImage,
+                boxHeight: "'400px'",
               }}></ImageBlock>
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={12} lg={2}>
-            <ul className="no-list-style pt-4">
-              <li>
-                <Link to="/energy">ENERGIA</Link>
-              </li>
-              <li>
-                <Link to="/smart-city">VÁROSFEJLESZTÉS</Link>
-              </li>
-              <li>
-                <Link to="/smart-city">DIGITÁLIS TERMÉKEK</Link>
-              </li>
-            </ul>
-          </Col>
-          <Col sm={12} md={12} lg={4} className="left-block pl-0">
+          <Col sm={12} md={12} lg={12} className="">
             <div className="content">
-              <h2>{title}</h2>
-              <div>{<ReactMarkdown children={description} />}</div>
+              <div className="decoration">
+                <svg width="100" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect y="7" width="100" height="6" fill="#FFE48F" />
+                  <circle cx="50" cy="10" r="10" fill="#FFE48F" />
+                </svg>
+              </div>
+              <h1 className="serif">{title}</h1>
+              <div className="description">{<ReactMarkdown children={description} />}</div>
+              <BlocksRenderer blocks={blocks || []}></BlocksRenderer>
             </div>
-          </Col>
-          <Col sm={12} md={12} lg={6} className="right-block p-0">
-            <BlocksContainer>
-              <ImageBlock
-                data={{
-                  background: sideTopImage,
-                  textColor: "white",
-                  boxHeight: boxHeightRectangle,
-                  hasOverlay: false,
-                }}></ImageBlock>
-              <ImageBlock
-                data={{
-                  background: sideBottomImage,
-                  textColor: "white",
-                  boxHeight: boxHeightRectangle,
-                  hasOverlay: false,
-                }}></ImageBlock>
-            </BlocksContainer>
           </Col>
         </Row>
       </Container>

@@ -20,6 +20,7 @@ export interface IArticle {
     };
     alternativeText: string;
   };
+  publishDate: string;
 }
 
 const ArticlesGrid = (props: IArticlesGrid) => {

@@ -8,32 +8,24 @@ header.header {
       padding-left: 30px;
       display: inline-flex;
       background: $primary;
-      width: 300px !important;
+      width: 253px !important;
       height: 60px;
 
       .site-logo {
-        max-height:40px;
+        height: 28px;
         width: auto;
       }
 
       @media screen and (max-width: 576px) {
-        width: 200px !important;
+        width: 232px !important;
         padding-left: 30px;
       }
       align-items: center;
     }
-    .decor {
-      position: absolute;
-      right: 0;
-      top: 16px;
-      background: $primary;
-      height: 38px;
-      width: 129px;
-    }
   }
 
   .mobile-menu-container {
-    padding-left: 30px;
+    padding-left: 59px;
   }
 
   .mobile-menu-container.navbar-collapse.collapse.show {
@@ -54,24 +46,25 @@ header.header {
   }
 }
 .offcanvas {
+  &.offcanvas-end {
+    right: -40px;
+  }
   .offcanvas-header {
     border-bottom: 1px solid #ccc;
     background: lightgray;
     padding: 0.83rem 1rem;
+    margin-right: 40px;
 
     .offcanvas-logo {
-      max-width: 200px;
+      max-width: 172px;
     }
   }
   a.nav-link {
     margin-bottom: 0.5rem;
+    font-weight: 400;
 
     &:last-of-type {
       margin-top: 0.5rem;
-
-      &:hover {
-        color: #ffc920 !important;
-      }
     }
 
     &.active {
@@ -89,8 +82,9 @@ header.header {
 a.nav-link {
   position: relative;
   padding-right: 21px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: black !important;
@@ -106,11 +100,6 @@ a.nav-link {
       height: 5px;
       background-color: black;
     }
-  }
-
-  &.active-bg {
-    color: $primary;
-    background-color: black;
   }
 
   /* Fade in */
@@ -136,15 +125,53 @@ a.nav-link {
   &:hover {
     color: $primary;
   }
+}
 
-  &:last-of-type {
-    padding-right: 26px;
-    height: 38px;
-    background: $primary;
+.justify-content-start.navbar-nav {
+  a {
+    margin-right: 10px;
+  }
+}
 
-    &:hover {
-      color: $primary;
-      background: black;
+.contact-navbar {
+  margin-right: 40px;
+
+  a {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+
+    &:first-child {
+      margin-right: 36px;
+    }
+
+    &:hover,
+    &:focus {
+      transition: 0.4s all;
+      color: rgba(0, 0, 0, 1);
+      text-decoration: underline;
+    }
+  }
+}
+
+.offcanvas-contact-navbar {
+  margin-left: 14px;
+  margin-top: 30px;
+  color: #000;
+  & > div {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: underline;
     }
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-
-const backlinkArrow = require("../../../images/svg/back_icon.svg") as string;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 export interface IImageBlock {
   id: number;
@@ -25,9 +25,9 @@ export interface IImageBlock {
 
 const ImageBlock = ({ data }: any) => {
   const { background, hasOverlay, textColor, boxHeight, logo, hasBackArrow, linkTo } = data;
-  
+
   const heading = data?.heading;
-  
+
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const onHoverHandle = (): void => {
     setIsHovered(!isHovered);
@@ -37,6 +37,21 @@ const ImageBlock = ({ data }: any) => {
     return "image-block" + (hasOverlay ? " has-overlay " : " ");
   };
 
+  const navigateBack = (): void => {
+    const prevPath = window.location.pathname;
+    const slugItems = prevPath.split("/");
+
+    if (window.location.hostname === "localhost" || window.location.origin === process.env.SITE_URL) {
+      if (slugItems.includes("project")) {
+        window.location.href = "/";
+      } else {
+        window.history.back();
+      }
+    } else {
+      window.location.href = "/";
+    }
+  };
+
   let content: any;
   if (linkTo) {
     content = (
@@ -44,7 +59,7 @@ const ImageBlock = ({ data }: any) => {
         {hasOverlay && (
           <div className="overlay-text">
             <h3>
-              {hasBackArrow && <img className="back-arrow" src={backlinkArrow} alt="" />}
+              {hasBackArrow && <FontAwesomeIcon icon={faArrowLeftLong} className="me-1" />}
               {heading}
             </h3>
           </div>
@@ -65,19 +80,24 @@ const ImageBlock = ({ data }: any) => {
                 role="button"
                 tabIndex={0}
                 onClick={() => {
-                  window.history.back();
+                  navigateBack();
                 }}
                 onKeyDown={() => {
-                  window.history.back();
+                  navigateBack();
                 }}>
-                {hasBackArrow && <img className="back-arrow" src={backlinkArrow} alt="" role="presentation" />}
+                {hasBackArrow && (
+                  <span className="me-2">
+                    <FontAwesomeIcon icon={faArrowLeftLong} className="me-2" />
+                    Home /
+                  </span>
+                )}
                 {heading}
               </div>
             </h3>
           </div>
         )}
 
-        {logo && <img src={logo.file.url} alt="" className="box-logo" />}
+        {logo && <img src={logo.file.url} alt="logo" className="box-logo" />}
 
         <img src={background.file.url} alt={heading} />
       </>

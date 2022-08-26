@@ -1,123 +1,86 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-
-import BlocksContainer from "../star/block/blocks-container";
-import MapView from "./map-view";
+import { Button } from "react-bootstrap";
 
 interface IContact {
   data: {
-    heading?: string;
-    isOneMap?: boolean;
-    mapViews: [
-      {
-        lat: string;
-        lng: string;
-        id: string;
-        zoom: number;
-        office_address: string;
-        premise_address: string;
-        scripts_already_loaded: boolean;
-        title?: string;
-      },
-      {
-        lat: string;
-        lng: string;
-        id: string;
-        zoom: number;
-        office_address: string;
-        premise_address: string;
-        scripts_already_loaded: boolean;
-        title?: string;
-      }
-    ];
+    leftImage: {
+      file: {
+        url: string;
+      };
+    };
   };
 }
 
 const Contact = () => {
-
   const { strapiContact } = useStaticQuery(graphql`
     query ContactQuery {
       strapiContact: allStrapiContact {
         nodes {
-          isOneMap
-          mapViews {
-            id
-            lat
-            lng
-            address
-            title
-            zoom
-            scriptsAlreadyLoaded
+          leftImage {
+            file {
+              url
+            }
           }
         }
       }
     }
   `);
 
-  const isOneMap = strapiContact.nodes[0].isOneMap;
-  const mapViewTop = strapiContact.nodes[0].mapViews[0];
-  const mapViewBottom = strapiContact.nodes[0].mapViews[1];
+  const leftImage = strapiContact.nodes[0].leftImage.file.url;
 
   return (
-    <section>
-      <Container fluid className="contact-container">
-        <Row>
-          <Col md={12} lg={6} className="left-block d-flex align-items-md-center align-items-lg-end justify-content-md-center flex-md-column mb-md-5">
-            <div className="block-content">
-              <h2>Contact us</h2>
-              <Form className="">
-                <Form.Group className="mb-2" controlId="name">
-                  <Form.Control type="text" placeholder="Your name..." />
-                </Form.Group>
-                <Form.Group className="mb-2" controlId="email">
-                  <Form.Control type="email" placeholder="Your email..." />
-                </Form.Group>
-                <Form.Group className="mb-2" controlId="tel">
-                  <Form.Control type="tel" placeholder="Phone number..." />
-                </Form.Group>
-
-                <Form.Group className="mb-2" controlId="department">
-                  <Form.Select aria-label="Select department">
-                    <option value="1">Sales</option>
-                    <option value="2">Planning</option>
-                    <option value="3">Development</option>
-                    <option value="4">Logistics</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mt-4" style={{ marginBottom: "12px" }} controlId="message">
-                  <Form.Control as="textarea" rows={6} placeholder="Your message..." />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                  Send
-                </Button>
-              </Form>
+    <section className="contact-container d-flex flex-row">
+      <div id="contact"></div>
+      <div className="d-flex contact-form-image-container">
+        <img className="contact-form-image" src={leftImage} alt="Contact us illustration" />
+      </div>
+      <div className="contact-form d-flex flex-grow-1 align-items-center justify-content-center">
+        <div className="block-content">
+          <h2 className="serif">Contact us to get a quote</h2>
+          <form name="contact" method="POST" action="/message-sent" netlify-honeypot="bot-field" netlify="true">
+            <div className="d-none">
+              <label>
+                Don’t fill this out if you're human: <input name="bot-field" />
+              </label>
             </div>
-          </Col>
-          <Col md={12} lg={6} className="right-block">
-            <BlocksContainer>
-              {isOneMap ? (
-                <div className="map-container-full">
-                  <MapView data={mapViewTop} className="map"></MapView>
-                </div>
-              ) : (
-                <>
-                  <div className="map-container">
-                    <div className="overlay">{mapViewTop.title}</div>
-                    <MapView data={mapViewTop} className="map"></MapView>
-                  </div>
-                  <div className="map-container">
-                    <div className="overlay">{mapViewBottom.title}</div>
-                    <MapView data={mapViewBottom} className="map"></MapView>
-                  </div>
-                </>
-              )}
-            </BlocksContainer>
-          </Col>
-        </Row>
-      </Container>
+
+            <div className="d-flex flex-column flex-md-row">
+              <div className="mb-2">
+                <label htmlFor="name">Your name</label>
+                <input placeholder="Your name..." type="text" name="name" className="form-control" />
+              </div>
+              <div className="mb-2">
+                <label htmlFor="email">Your email</label>
+                <input placeholder="Your email..." type="email" name="email" className="form-control" />
+              </div>
+            </div>
+
+            <div className="mb-2">
+              <label htmlFor="phone">Phone number</label>
+              <input placeholder="Phone number..." type="tel" name="phone" className="form-control" />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="message">Select department</label>
+              <select name="department" aria-label="Select department" className="form-select">
+                <option value="Sales">Sales</option>
+                <option value="Planning">Planning</option>
+                <option value="Development">Development</option>
+                <option value="Logistics">Logistics</option>
+              </select>
+            </div>
+
+            <div className="mb-4" style={{ marginBottom: "12px" }}>
+              <label htmlFor="message">Message</label>
+              <textarea name="message" rows="6" className="form-control" placeholder="Your message..."></textarea>
+            </div>
+
+            <Button variant="primary" type="submit">
+              Get a quote
+            </Button>
+          </form>
+        </div>
+      </div>
     </section>
   );
 };

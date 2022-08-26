@@ -6,14 +6,12 @@ require("dotenv").config({
 
 module.exports = {
   pathPrefix: `/${process.env.PATH_PREFIX}`,
-  // assetPrefix: `https://work.drb.services`,
+  // assetPrefix: `https://custom.domain`,
   siteMetadata: {
     title: process.env.PROJECT_NAME,
     siteUrl: process.env.SITE_URL,
     mode: process.env.SITE_MODE,
     titleTemplate: `%s · ${process.env.PROJECT_NAME}`,
-    description: "description comes here...",
-    seoImage: "/urben_design_group.png",
     image: "/favicon.png", // Path to the image placed in the 'static' folder, in the project's root directory.
   },
   plugins: [
@@ -41,12 +39,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve(`src/data`),
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -59,12 +51,6 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 1080,
-            },
-          },
-          {
-            resolve: "gatsby-remark-normalize-paths",
-            options: {
-              pathFields: ["coin_image"],
             },
           },
         ],
@@ -92,6 +78,14 @@ module.exports = {
         duration: 600,
       },
     },
+/*    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/ // See below to configure properly
+        }
+      }
+    },*/
     {
       resolve: 'gatsby-source-strapi',
       options: {
@@ -102,7 +96,7 @@ module.exports = {
           'Category',
           'Project group',
           'Project',
-          'Page'
+          'Page',
         ],
         singleTypes: [
           'Home',
@@ -110,8 +104,6 @@ module.exports = {
           'Footer',
           'Global',
           'Navigation',
-          'Partner',
-          'Reference slider'
         ],
         // Extract images from markdown / richtext fields.
 
@@ -127,158 +119,5 @@ module.exports = {
         cache: false,
       },
     },
-    /*{
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
-        accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: [
-          {
-            singularName: "article",
-            queryParams: {
-              publicationState:
-                process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
-              populate: {
-                cover: "*",
-                blocks: {
-                  populate: "*",
-                },
-              },
-            },
-          },
-          {
-            singularName: "author",
-          },
-          {
-            singularName: "box",
-            queryParams: {
-              populate: {
-                background: "*",
-                logo: "*",
-                boxGroup: "*",
-              },
-            },
-          },
-          {
-            singularName: "box-group",
-            queryParams: {
-              populate: {
-                background: "*",
-              },
-            },
-          },
-          {
-            singularName: "category",
-          },
-          {
-            singularName: "project",
-            queryParams: {
-              populate: {
-                topLeftImage: "*",
-                topRightImage: "*",
-                sideTopImage: "*",
-                sideBottomImage: "*",
-                logo: "*",
-                projectGroup: "*",
-              },
-            },
-          },
-          {
-            singularName: "project-group",
-            queryParams: {
-              populate: {
-                background: "*",
-              },
-            },
-          },
-        ],
-        singleTypes: [
-          {
-            singularName: "about",
-            queryParams: {
-              populate: {
-                blocks: {
-                  populate: "*",
-                },
-              },
-            },
-          },
-          {
-            singularName: "contact",
-            queryParams: {
-              populate: {
-                mapViews: {
-                  populate: "*",
-                },
-              },
-            },
-          },
-          {
-            singularName: "footer",
-            queryParams: {
-              populate: {
-                logo: "*",
-                flag: "*",
-                developer: "*",
-              },
-            },
-          },
-          {
-            singularName: "global",
-            queryParams: {
-              populate: {
-                favicon: "*",
-                defaultSeo: {
-                  populate: "*",
-                },
-                video: {
-                  populate: "*",
-                },
-              },
-            },
-          },
-          {
-            singularName: "navigation",
-            queryParams: {
-              populate: {
-                navigationItems: {
-                  populate: '*'
-                },
-                logo: '*'
-              },
-            },
-          },
-          {
-            singularName: "partner",
-            queryParams: {
-              populate: {
-                slides: {
-                  populate: {
-                    image: '*',
-                    logo: '*'
-                  }
-                },
-              },
-            },
-          },
-          {
-            singularName: "reference-slider",
-            queryParams: {
-              populate: {
-                imageBlocks: {
-                  populate: {
-                    background: '*',
-                    logo: '*'
-                  }
-                },
-                titleBar: {
-                  populate: '*'
-                }
-              },
-            },
-          },
-        ],
-      },
-    },*/
   ],
 };

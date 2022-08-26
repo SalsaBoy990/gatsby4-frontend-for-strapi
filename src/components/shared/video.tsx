@@ -17,7 +17,7 @@ const Video = (props: IVideo) => {
   const { videoTitle, videoSource, videoElementId } = props.data;
 
   return (
-    <div className="py-5">
+    <div>
       <Ratio aspectRatio="16x9">
         <video id={videoElementId} title={videoTitle} width="100%" height="100%" controls autoPlay muted loop>
           <source src={videoSource.file.url} type="video/mp4" />

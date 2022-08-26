@@ -2,6 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import { Card } from "react-bootstrap";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import Badge from "react-bootstrap/Badge";
 
 export interface IArticleCard {
   article: IArticle;
@@ -20,15 +21,19 @@ export interface IArticle {
     };
     alternativeText: string;
   };
+  publishDate: string;
 }
 
 const ArticleCard = (props: IArticleCard) => {
   const article = props.article;
 
   return (
-    <div className="col d-flex">
-      <Card bg="dark" text={"light"}>
+    <div className="col d-flex article-item">
+      <Card bg="black" text={"white"}>
         <Link to={`/article/${article.slug}`}>
+          <div className="article-date">
+            <Badge bg="dark">{article.publishDate}</Badge>
+          </div>
           <GatsbyImage image={getImage(article.cover?.file.childImageSharp.gatsbyImageData) as IGatsbyImageData} alt={article.cover?.alternativeText} />
           <Card.Body>
             <Card.Title>{article.title}</Card.Title>

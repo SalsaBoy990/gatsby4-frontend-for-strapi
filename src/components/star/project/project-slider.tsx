@@ -19,9 +19,11 @@ const ProjectSlider = (props: IProjectSlider) => {
     centerPadding: "60px",
     centerMode: false,
     slidesToScroll: 1,
-    swipeToSlide: true,
+    swipeToSlide: false,
     autoplay: false,
-    autoplaySpeed: 2000,
+    draggable: false,
+    swipe: false,
+    touchMove: false
   };
   return (
     <section className="project-slider-container">

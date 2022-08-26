@@ -1,6 +1,48 @@
 .image-slider-container {
-  width: 100%;
-  margin: 0 auto;
+  .highlights-top {
+    margin-top: 111px;
+
+    @media screen and (max-width: $desktop) {
+      margin-top: 61px;
+    }
+
+    svg {
+      transform: scale(0.8);
+      margin-bottom: 12px;
+    }
+
+    .highlights-title {
+      font-family: "Roboto Serif", Georgia, "Times New Roman", Times, serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: 0.03em;
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 24px;
+        padding: 0 24px;
+      }
+    }
+
+    p {
+      margin-top: 40px;
+      margin-bottom: 83px;
+
+      @media screen and (max-width: $desktop) {
+        margin-bottom: 43px;
+      }
+
+      @media screen and (max-width: $tablet-small) {
+        font-size: 16px;
+        padding: 0 24px;
+      }
+
+      max-width: 550px;
+      text-align: center;
+    }
+  }
 
   .image-slider {
     .slick-next {
@@ -14,7 +56,35 @@
     }
 
     .slick-dots {
-      bottom: 20px;
+      bottom: 0px;
+    }
+
+    .slick-prev:hover:before,
+    .slick-next:hover:before {
+      opacity: 0.9;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: white;
+      opacity: 0.5;
+    }
+
+    .slick-dots li.slick-active button:before,
+    .slick-dots li button:before {
+      color: white;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      opacity: 0.5;
+    }
+
+    .slick-prev:hover:before,
+    .slick-prev:focus:before,
+    .slick-next:hover:before,
+    .slick-next:focus:before {
+      opacity: 0.9;
     }
 
     .slick-list {
@@ -32,79 +102,41 @@
             filter: saturate(2) sepia(70%);
           }
 
-          img.logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-
-            @media (max-width: 1010px) {
-              zoom: 0.75;
-            }
-
-            &.logo-1 {
-              top: 119px;
-              width: 266px;
-              height: 266px;
-              @media (max-width: 1010px) {
-                top: 119px;
-              }
-            }
-            &.logo-2 {
-              top: 127px;
-              width: 169px;
-              height: 250px;
-              @media (max-width: 1010px) {
-                top: 127px;
-              }
-            }
-            &.logo-3 {
-              top: 127px;
-              width: 169px;
-              height: 250px;
-              @media (max-width: 1010px) {
-                top: 127px;
-              }
-            }
-            &.logo-4 {
-              top: 161px;
-              width: 184px;
-              height: 181px;
-              @media (max-width: 1010px) {
-                top: 161px;
-              }
-            }
-          }
-
           img {
+            filter: grayscale(0.5);
             width: 100%;
-            aspect-ratio: 9/16;
+            aspect-ratio: 420/320;
             object-fit: cover;
             display: unset;
           }
 
           .overlay-text {
-            z-index: 10000;
-            &.first {
-              bottom: -32px;
-            }
-            &.fourth {
-              bottom: -32px;
-            }
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+
             h2 {
-              width: 265px;
+              width: 100%;
               font-weight: 700;
               font-size: 18px;
-              line-height: 27px;
+              line-height: 120%;
               letter-spacing: 0.15em;
               color: #fff;
-              z-index: 1000;
+              z-index: 100;
               word-break: keep-all;
+              text-transform: uppercase;
+              margin-bottom: 0;
+              backdrop-filter: blur(1px);
+
+              @media screen and (max-width: $tablet-small) {
+              }
             }
             position: absolute;
-            bottom: -15px;
+            bottom: 0px;
             left: 50%;
+            width: 100%;
             transform: translateX(-50%);
-            height: 129px;
+            height: 80px;
           }
 
           &::before {
@@ -115,7 +147,7 @@
             content: "";
             background: $primary;
             mix-blend-mode: multiply;
-            height: 129px;
+            height: 80px;
             width: 100%;
           }
         }

@@ -4,9 +4,8 @@
 
   .empty-slider {
     .slick-next {
-      top: 690px;
-      right: 55%;
-      transform: translateX(-70%);
+     // top: 220px;
+      right: 10px;
       z-index: 10;
       &::before {
         content: url(../../../images/svg/next_icon.svg);
@@ -14,9 +13,8 @@
     }
 
     .slick-prev {
-      top: 690px;
-      left: 30%;
-      transform: translateX(-47%);
+    //  top: 220px;
+      left: 0;
       z-index: 10;
 
       &::before {
@@ -25,10 +23,10 @@
     }
 
     .slick-dots {
-      top: 700px;
+      top: 60px;
       left: 50%;
       max-height: 60px;
-      transform: translateX(-62.3%);
+      transform: translateX(-50%);
 
       li {
         button {

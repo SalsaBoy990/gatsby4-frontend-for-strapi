@@ -10,10 +10,10 @@ export interface IBlockRichText {
 
 const BlockRichText = ({ data }: IBlockRichText) => {
   return (
-    <Container>
+    <Container fluid className="pe-0 ps-0">
       <Row>
         <Col>
-          <div className="py-4">
+          <div className="pb-4">
             <ReactMarkdown children={data.richTextBody}></ReactMarkdown>
           </div>
         </Col>

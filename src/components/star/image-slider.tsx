@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import TitleBar from "../../shared/title-bar";
 
 export interface IImageSlider {
   data: {
     highlightedImageBlocks: IImageSlide[];
-  /*  titleBar: {
-      titleBarTitle: string;
-    };*/
+    highlightsTitle: string;
+    highlightsDescription: string;
   };
 }
 
@@ -21,14 +19,6 @@ export interface IImageSlide {
     };
   };
   hasOverLay: boolean;
-  hasBackArrow: boolean;
-  logo?: {
-    file: {
-      url: string;
-    };
-  };
-  textColor: string;
-  boxHeight: string;
 }
 
 type hoverStateItem = {
@@ -37,7 +27,7 @@ type hoverStateItem = {
 };
 
 const ImageSlider = (props: IImageSlider) => {
-  const { highlightedImageBlocks } = props.data;
+  const { highlightedImageBlocks, highlightsTitle, highlightsDescription } = props.data;
   const [hoverStates, setIsHoverStates] = useState<hoverStateItem[]>([]);
 
   useEffect(() => {
@@ -77,12 +67,12 @@ const ImageSlider = (props: IImageSlider) => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1100,
+        breakpoint: 992,
         settings: {
           arrows: true,
           dots: true,
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {
@@ -99,12 +89,21 @@ const ImageSlider = (props: IImageSlider) => {
 
   return (
     <section className="image-slider-container">
-      {/*<TitleBar title={titleBar.titleBarTitle}></TitleBar> */}
+      <div className="d-flex flex-column align-items-center highlights-top">
+        <svg width="100" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="7" width="100" height="6" fill="#FFE48F" />
+          <circle cx="50" cy="10" r="10" fill="#FFE48F" />
+        </svg>
+
+        <h2 className="highlights-title">{highlightsTitle}</h2>
+        <p>{highlightsDescription}</p>
+      </div>
+
       <Slider {...sliderSettings}>
         {highlightedImageBlocks &&
           highlightedImageBlocks.map((item: IImageSlide, index: number) => (
-            <div key={item.id}>
-              <div className="overlay-text first">
+            <a href={item.linkTo} key={item.id}>
+              <div className="overlay-text first d-flex align-items-center text-center">
                 <h2>{item.heading}</h2>
               </div>
               <img
@@ -125,27 +124,7 @@ const ImageSlider = (props: IImageSlider) => {
                 }}
                 className={hoverStates[index]?.isHovered ? "animate_hover" : ""}
               />
-              {item.logo && (
-                <img
-                  src={item.logo.file.url}
-                  role="presentation"
-                  className="logo logo-1"
-                  alt=""
-                  onMouseOver={() => {
-                    updateHoverStatesHandle(index);
-                  }}
-                  onMouseOut={() => {
-                    updateHoverStatesHandle(index);
-                  }}
-                  onFocus={() => {
-                    updateHoverStatesHandle(index);
-                  }}
-                  onBlur={() => {
-                    updateHoverStatesHandle(index);
-                  }}
-                />
-              )}
-            </div>
+            </a>
           ))}
       </Slider>
     </section>

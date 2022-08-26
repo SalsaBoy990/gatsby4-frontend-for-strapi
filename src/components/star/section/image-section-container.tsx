@@ -25,7 +25,7 @@ const ImageSectionContainer = (props: IImageSectionContainer) => {
 
   return (
     <Container fluid className={containerClass()}>
-      <Row>
+      <Row className="pl-0">
         <Col md={12} lg={6} className="left-block pl-0">
           <h2>{heading}</h2>
           <div>

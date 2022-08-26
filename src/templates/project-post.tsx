@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { IProject } from "../components/star/project/project";
 
 import LayoutGlobal from "../layout/layout-global";
-
 import Seo from "../components/global/seo";
 import Project from "../components/star/project/project";
 import EmptySlider from "../components/star/slider/empty-slider";
@@ -14,7 +13,7 @@ const ProjectPost = ({ data }: any) => {
 
   const seo = {
     metaTitle: projectData.title,
-    metaDescription: projectData.description,
+    metaDescription: projectData.seoDescription,
     shareImage: projectData.background,
   };
 
@@ -27,15 +26,12 @@ const ProjectPost = ({ data }: any) => {
             projectData.projects.map((item: IProject) => {
               return (
                 <Project
+                  groupTitle={projectData.title}
                   key={item.id}
                   title={item.title}
-                  navTitle={item.navTitle}
                   description={item.description}
-                  topLeftImage={item.topLeftImage}
-                  topRightImage={item.topRightImage}
-                  sideTopImage={item.sideTopImage}
-                  sideBottomImage={item.sideBottomImage}
-                  seoDescription={item.seoDescription}></Project>
+                  coverImage={item.coverImage}
+                  blocks={item.blocks}></Project>
               );
             })}
         </EmptySlider>
@@ -58,33 +54,37 @@ export const pageQuery = graphql`
       projects {
         id
         title
-        description
-        id
-        logo {
-          file {
-            url
-          }
-        }
-        navTitle
         seoDescription
-        sideBottomImage {
+        coverImage {
           file {
             url
           }
         }
-        sideTopImage {
-          file {
-            url
+        blocks {
+          __typename
+          ... on StrapiComponentSharedMedia {
+            id
+            file {
+              mime
+              file {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
-        }
-        topLeftImage {
-          file {
-            url
+          ... on StrapiComponentSharedRichText {
+            id
+            richTextBody: body
           }
-        }
-        topRightImage {
-          file {
-            url
+          ... on StrapiComponentSharedVideo {
+            id
+            videoTitle
+            videoSource {
+              file {
+                url
+              }
+            }
           }
         }
       }

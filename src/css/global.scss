@@ -1,5 +1,5 @@
 // Import this for all pages
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,700&display=swap');
 @import "./theme/variables";
 @import "./theme/mixins";
 @import "./components/components";
@@ -27,8 +27,9 @@ html {
     margin-right: auto;
     font-weight: 300;
     @include poppins;
-    background-color: rgb(27, 27, 27);
+    background-color: #323232;
     color: white;
+    max-width: 1920px;
   }
 
   h1,
@@ -71,13 +72,13 @@ html {
 
 .slick-prev:before,
 .slick-next:before {
-  font-size: 36px;
+  font-size: 30px;
 }
 
 .slick-prev,
 .slick-next {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 .slick-prev {
@@ -105,4 +106,16 @@ blockquote {
     width: 4px;
     background-color: rgba(255, 255, 255, 0.3);
   }
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  margin-top: 60px;
+}
+
+.serif {
+  font-family: "Roboto Serif", Georgia, 'Times New Roman', Times, serif;
 }

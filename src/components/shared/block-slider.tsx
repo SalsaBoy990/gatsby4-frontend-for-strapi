@@ -16,7 +16,7 @@ const BlockSlider = ({ data }: IBlockSlider) => {
 
   console.log(data);
   return (
-    <Container className="my-5">
+    <Container className="mb-5">
       <Row>
         <Col>
           <Slider dots={true} infinite={true} speed={300} slidesToShow={1} slidesToScroll={1} arrows={true} swipe={true}>

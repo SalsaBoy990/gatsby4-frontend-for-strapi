@@ -10,7 +10,7 @@ export interface IBlockquote {
 
 const BlockQuote = (props: IBlockquote) => {
   return (
-    <div className="py-6">
+    <div className="pb-4">
       <Container>
         <Row>
           <Col>

@@ -20,7 +20,7 @@ const BlockMedia = ({ data }: IBlockMedia) => {
   const isVideo = data.file.mime.startsWith("video");
 
   return (
-    <div className="py-5">
+    <div className="pb-5">
       {isVideo ? (
         <p>TODO video</p>
       ) : (
