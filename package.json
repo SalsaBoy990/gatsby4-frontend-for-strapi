@@ -55,7 +55,6 @@
     "i18next": "^21.6.6",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-xhr-backend": "^3.2.2",
-    "netlify-plugin-gatsby-cache": "^0.3.2",
     "npm": "^8.3.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
@@ -82,6 +81,7 @@
     "@types/react-helmet": "^6.1.5",
     "@types/react-slick": "^0.23.8",
     "@types/underscore.string": "^0.0.38",
+    "gatsby-plugin-netlify": "^5.0.1",
     "typescript": "^4.6.3"
   }
 }
