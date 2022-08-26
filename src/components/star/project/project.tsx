@@ -22,8 +22,6 @@ export interface IProject {
 const Project = (props: any) => {
   const { title, description, coverImage, blocks, groupTitle, index } = props;
 
-    console.log(props);
-
   return (
     <div>
       <Container fluid className="project-container" style={{ marginTop: index === 0 ? "60px" : "-68px" }}>

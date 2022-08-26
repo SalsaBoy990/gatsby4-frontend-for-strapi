@@ -50,8 +50,6 @@ const Block = ({ block }: any) => {
 };
 
 const BlocksRenderer = ({ blocks }: any) => {
-  //console.log(blocks);
-
   return (
     <div className="content-wrapper">
       {blocks.map((block: any, index: any) => (

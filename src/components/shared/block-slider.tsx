@@ -13,8 +13,6 @@ export interface IBlockSlider {
 }
 
 const BlockSlider = ({ data }: IBlockSlider) => {
-
-  //console.log(data);
   return (
     <Container className="mb-5">
       <Row>
