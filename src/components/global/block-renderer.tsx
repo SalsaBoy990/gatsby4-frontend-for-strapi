@@ -50,7 +50,7 @@ const Block = ({ block }: any) => {
 };
 
 const BlocksRenderer = ({ blocks }: any) => {
-  console.log(blocks);
+  //console.log(blocks);
 
   return (
     <div className="content-wrapper">

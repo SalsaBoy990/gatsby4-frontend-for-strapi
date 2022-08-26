@@ -10,6 +10,7 @@ import BreadcrumbBar from "../components/global/breadcrumb-bar";
 
 const ArticlePost = ({ data }: any) => {
   const article = data.strapiArticle;
+  console.log(article);
 
   const seo = {
     metaTitle: article.title,

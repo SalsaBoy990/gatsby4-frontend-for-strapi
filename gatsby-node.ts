@@ -68,6 +68,8 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
   const projects = result.data.allStrapiProjectGroup.nodes
   const pages = result.data.allStrapiPage.nodes
 
+  console.log(projects)
+
   if (articles.length > 0) {
     articles.forEach((article: any) => {
       createPage({

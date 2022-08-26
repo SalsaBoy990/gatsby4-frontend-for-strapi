@@ -81,11 +81,11 @@ const Header = () => {
     <header className="header fixed-top" style={{ marginBottom: "60px" }}>
       <Navbar collapseOnSelect expand="xl" style={{ backgroundColor: "#FFF !important", height: "60px" }}>
         <Container fluid className="p-0">
-          <h1 className="mb-0">
+          <div className="mb-0">
             <a href={siteUrl} className="navbar-brand">
               <img src={logo} className="site-logo d-inline-block align-top" alt="Starcity Group" />
             </a>
-          </h1>
+          </div>
           <button
             className="btn btn-link d-block d-xl-none mr-2 order-2 order-xl-1"
             type="button"
