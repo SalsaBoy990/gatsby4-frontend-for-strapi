@@ -15,7 +15,7 @@ module.exports = {
     image: "/favicon.png", // Path to the image placed in the 'static' folder, in the project's root directory.
   },
   plugins: [
-    `gatsby-plugin-netlify-cache`,
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-sass",
       options: {
