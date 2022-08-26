@@ -38,7 +38,8 @@ const Contact = () => {
       <div className="contact-form d-flex flex-grow-1 align-items-center justify-content-center">
         <div className="block-content">
           <h2 className="serif">Contact us to get a quote</h2>
-          <form name="contact" method="POST" action="/message-sent" netlify-honeypot="bot-field" netlify="true">
+          <form name="contact" method="POST" action="/message-sent" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="d-none">
               <label>
                 Don’t fill this out if you're human: <input name="bot-field" />
