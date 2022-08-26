@@ -1,9 +1,35 @@
 [build]
   base    = "/"
   publish = "public"
-  command = "npm run build"
+  command = "npm run build-netlify"
 
-[dev]
-  base    = "/"
-  publish = "public"
-  command = "npm run build"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  # optional, fails build when a category is below a threshold
+  [plugins.inputs.thresholds]
+    performance = 0.5
+    accessibility = 0.5
+    best-practices = 0.5
+    seo = 0.5
+    pwa = 0.5
+
+[[plugins]]
+  package = "netlify-plugin-is-website-vulnerable"
+
+# Asset optimization
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = false
+  minify = false
+[build.processing.js]
+  bundle = false
+  minify = false
+[build.processing.html]
+  pretty_urls = false
+[build.processing.images]
+  compress = true
